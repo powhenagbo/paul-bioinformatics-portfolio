@@ -96,8 +96,8 @@ const skillCategories = [
       { name: "MongoDB", pct: 84 },
       { name: "PostgreSQL", pct: 80 },
       { name: "Docker", pct: 72 },
-      { name: "Cloud computing", pct: 80 }
-      { name: "On-premise", pct: 85 }
+      { name: "Cloud computing", pct: 80 },
+      { name: "On-premise", pct: 85 },
       { name: "Linux / HPC", pct: 85 },
     ],
   },
@@ -139,7 +139,7 @@ const timeline = [
 
 const stats = [
   { value: 4, label: "Major Projects", suffix: "" },
-  { value: 10000+, label: "Genomes Processed", suffix: "+" },
+  { value: 10000, label: "Genomes Processed", suffix: "+" },
   { value: 94, label: "Model Accuracy", suffix: "%" },
   { value: 3, label: "Research Areas", suffix: "" },
 ];
