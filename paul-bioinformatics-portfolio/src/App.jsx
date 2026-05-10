@@ -9,11 +9,11 @@ const projects = [
     category: "Bioinformatics",
     tag: "BINF",
     summary:
-      "Alignment-free genome comparison using k-mers, hashing, cosine distance, distance matrices, and phylogenetic tree construction.",
+      "Alignment-free genome comparison using k-mers, hashing, AI Agent, cosine distance, distance matrices, and phylogenetic tree construction.",
     details:
       "This pipeline processes FASTA files, extracts k-mer features, converts sequences into numerical vectors, calculates cosine distance, and supports phylogenetic tree construction. Benchmarked against 1,000+ viral genomes with 94% clustering accuracy.",
     tools: ["Python", "R","K-mer Analysis", "HPC/Linux"],
-    stat: "1000+",
+    stat: "10000+",
     statLabel: "Genomes analyzed",
   },
   {
@@ -96,8 +96,8 @@ const skillCategories = [
       { name: "MongoDB", pct: 84 },
       { name: "PostgreSQL", pct: 80 },
       { name: "Docker", pct: 72 },
-      { name: "Cloud computing", pct: 80 },
-      { name: "On-premise", pct: 85 },
+      { name: "Cloud computing", pct: 80 }
+      { name: "On-premise", pct: 85 }
       { name: "Linux / HPC", pct: 85 },
     ],
   },
@@ -110,6 +110,7 @@ const timeline = [
     org: "University of Arkansas at Little Rock",
     type: "education",
     desc: "Built multi-agent FastAPI pipeline integrating AlphaFold, OpenAI, ChEMBL, and pgvector for drug target analysis.",
+    grade: "Distinction (Top 10%) 4.0 of 4.0 GPA",
   },
   {
     year: "2025",
@@ -132,12 +133,13 @@ const timeline = [
     org: "University of East London",
     type: "education",
     desc: "Enrolled in the use of Spatial Data Analysis techniques., data Mining, and machine learning algorithms to extract insights from complex datasets.",
+    grade: "Distinction (Top 10%) 3.87 of 4.0 GPA",
   },
 ];
 
 const stats = [
   { value: 4, label: "Major Projects", suffix: "" },
-  { value: 10000, label: "Genomes Processed", suffix: "+" },
+  { value: 10000+, label: "Genomes Processed", suffix: "+" },
   { value: 94, label: "Model Accuracy", suffix: "%" },
   { value: 3, label: "Research Areas", suffix: "" },
 ];
