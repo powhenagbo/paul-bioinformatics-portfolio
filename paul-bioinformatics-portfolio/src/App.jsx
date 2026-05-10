@@ -103,6 +103,45 @@ const skillCategories = [
   },
 ];
 
+const research = [
+  {
+    year: "2024",
+    title: "Enhancing Diphtheria Drug Discovery Through Computational Approaches",
+    topic: "Computational Biology",
+    desc: "Applied computational methods including molecular docking and ML-based screening to identify potential drug candidates targeting Diphtheria toxin pathways.",
+  },
+  {
+    year: "2024",
+    title: "Obesity, Community Health Programs & Endometrial Cancer Detection",
+    topic: "Public Health",
+    desc: "Explored the impact of obesity and community health interventions on enhancing endometrial cancer detection among low-income and Native American women through a public health lens.",
+  },
+  {
+    year: "2024",
+    title: "Prenatal Vitamin Use & Teratogenic Medication Exposure in African American Adolescents",
+    topic: "Health Informatics",
+    desc: "Investigated the influence of prenatal vitamin use and community health programs on reducing teratogenic medication exposure and improving perinatal nutrition among underserved populations.",
+  },
+  {
+    year: "2023",
+    title: "Mathematical Analysis of Hepatitis B Virus Transmission Dynamics",
+    topic: "Mathematical Biology",
+    desc: "Developed an Atangana-Baleanu Fractional-Order SPQWXY model to analyze HBV transmission dynamics in the absence of therapy, providing insights into disease progression patterns.",
+  },
+  {
+    year: "2023",
+    title: "Advocacy and Regulation of Spatial Data Infrastructures for Public Health Policy",
+    topic: "Health Policy",
+    desc: "Examined frameworks for governing spatial data infrastructures and their role in shaping evidence-based public health policy decisions.",
+  },
+  {
+    year: "2022",
+    title: "AI and Machine Learning Governance in Healthcare",
+    topic: "AI Ethics",
+    desc: "Analyzed governance frameworks for responsible AI and ML deployment in clinical and public health settings, addressing bias, transparency, and regulatory compliance.",
+  },
+];
+
 const timeline = [
   {
     year: "2026",
@@ -230,11 +269,13 @@ export default function App() {
   const skillsRef = useRef(null);
   const timelineRef = useRef(null);
   const projectsRef = useRef(null);
+  const researchRef = useRef(null);
 
   const statsInView = useInView(statsRef);
   const skillsInView = useInView(skillsRef);
   const timelineInView = useInView(timelineRef);
   const projectsInView = useInView(projectsRef);
+  const researchInView = useInView(researchRef);
 
   const fullText = "Building research-ready tools for genomics and biomedical discovery.";
 
@@ -284,7 +325,7 @@ export default function App() {
         </button>
 
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {["projects", "skills", "timeline", "contact"].map((id) => (
+          {["projects", "skills", "timeline", "research", "contact"].map((id) => (
             <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
               {id.charAt(0).toUpperCase() + id.slice(1)}
             </a>
@@ -477,6 +518,30 @@ export default function App() {
                 <p>{item.desc}</p>
                 {item.grade && <p className="timeline-grade">🎓 {item.grade}</p>}
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="research" className="section research-section" ref={researchRef} aria-labelledby="research-heading">
+        <a href="#" className="back-to-top" aria-label="Back to top">↑ Top</a>
+        <div className={`section-title reveal ${researchInView ? "visible" : ""}`}>
+          <p className="eyebrow"><span className="eyebrow-dot" aria-hidden="true" />Publications & Studies</p>
+          <h2 id="research-heading">Research Work</h2>
+        </div>
+        <div className="research-grid">
+          {research.map((item, i) => (
+            <div
+              key={i}
+              className={`research-card reveal ${researchInView ? "visible" : ""}`}
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <div className="research-card-header">
+                <span className="research-topic">{item.topic}</span>
+                <span className="research-year">{item.year}</span>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
