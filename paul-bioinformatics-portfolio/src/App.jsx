@@ -475,6 +475,7 @@ export default function App() {
                 <h3>{item.title}</h3>
                 <p className="timeline-org">{item.org}</p>
                 <p>{item.desc}</p>
+                {item.grade && <p className="timeline-grade">🎓 {item.grade}</p>}
               </div>
             </div>
           ))}

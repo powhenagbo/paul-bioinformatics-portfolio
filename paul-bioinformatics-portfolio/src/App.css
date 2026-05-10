@@ -909,6 +909,14 @@ footer {
 }
 .close:hover { background: rgba(10,230,184,0.1); color: var(--accent); border-color: var(--accent); }
 
+.timeline-grade {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
 /* ─── BACK TO TOP ─── */
 .back-to-top {
   display: inline-flex;
