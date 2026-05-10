@@ -96,6 +96,8 @@ const skillCategories = [
       { name: "MongoDB", pct: 84 },
       { name: "PostgreSQL", pct: 80 },
       { name: "Docker", pct: 72 },
+      { name: "Cloud computing", pct: 80 },
+      { name: "On-premise", pct: 85 },
       { name: "Linux / HPC", pct: 85 },
     ],
   },
@@ -104,9 +106,9 @@ const skillCategories = [
 const timeline = [
   {
     year: "2026",
-    title: "AI Drug Discovery Platform",
-    org: "UALR — Bioinformatics Dept.",
-    type: "project",
+    title: " M.S/ P.hd. Bioinformatics Program",
+    org: "University of Arkansas at Little Rock",
+    type: "education",
     desc: "Built multi-agent FastAPI pipeline integrating AlphaFold, OpenAI, ChEMBL, and pgvector for drug target analysis.",
   },
   {
@@ -123,18 +125,19 @@ const timeline = [
     type: "project",
     desc: "Developed alignment-free genome comparison pipeline using k-mer hashing and cosine distance for phylogenetic tree construction, classification, HGT, Tensor, Outbreak detection and Download Genome from NCBI site and also incorporate AGentic AI.",
   },
+  
   {
     year: "2024",
-    title: " M.S/ P.hd. Bioinformatics Program",
-    org: "University of Arkansas at Little Rock",
+    title: " M.Sc  Data Science Program",
+    org: "University of East London",
     type: "education",
-    desc: "Enrolled in integrated immunology and bioinformatics program. Focus: computational genomics, machine learning, and systems biology.",
+    desc: "Enrolled in the use of Spatial Data Analysis techniques., data Mining, and machine learning algorithms to extract insights from complex datasets.",
   },
 ];
 
 const stats = [
   { value: 4, label: "Major Projects", suffix: "" },
-  { value: 1000, label: "Genomes Processed", suffix: "+" },
+  { value: 10000, label: "Genomes Processed", suffix: "+" },
   { value: 94, label: "Model Accuracy", suffix: "%" },
   { value: 3, label: "Research Areas", suffix: "" },
 ];
@@ -289,6 +292,9 @@ export default function App() {
 
       <header className="hero">
         <div className="hero-text">
+          <div className="hero-avatar">
+            <img src="/profile.jpg" alt="Paul Alemoh" />
+          </div>
           <p className="eyebrow">
             <span className="eyebrow-dot" aria-hidden="true" />
             Computational Biology Portfolio

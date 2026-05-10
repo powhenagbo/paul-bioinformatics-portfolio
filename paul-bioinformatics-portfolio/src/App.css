@@ -212,13 +212,30 @@ h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; }
   50% { opacity: 0.5; transform: scale(0.7); }
 }
 
+/* ─── HERO AVATAR ─── */
+.hero-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 2px solid rgba(10,230,184,0.4);
+  box-shadow: 0 0 20px rgba(10,230,184,0.15);
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ─── HERO ─── */
 .hero {
   position: relative;
   z-index: 1;
   width: min(1180px, 92%);
   margin: 0 auto;
-  padding: 80px 0 60px;
+  padding: 40px 0 60px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 60px;
