@@ -12,7 +12,7 @@ const projects = [
       "Alignment-free genome comparison using k-mers, hashing, AI Agent, cosine distance, distance matrices, and phylogenetic tree construction.",
     details:
       "This pipeline processes FASTA files, extracts k-mer features, converts sequences into numerical vectors, calculates cosine distance, and supports phylogenetic tree construction. Benchmarked against 1,000+ viral genomes with 94% clustering accuracy.",
-    tools: ["Python", "R","K-mer Analysis", "HPC/Linux"],
+    tools: ["AI","Python", "R","K-mer Analysis", "HPC/Linux"],
     stat: "10000+",
     statLabel: "Genomes analyzed",
   },
@@ -25,7 +25,7 @@ const projects = [
       "Full-stack computational workflow for target selection, bioactivity processing, ML classification, and 3D protein structure visualization.",
     details:
       "Integrates ChEMBL bioactivity data, OpenAI chat agent, FastAPI backend, PostgreSQL with pgvector, AlphaFold protein viewer (3Dmol.js with pLDDT coloring), Lipinski descriptor calculation, and Random Forest classifiers. Built with React frontend and RESTful API.",
-    tools: ["Python", "FastAPI", "RDKit", "PostgreSQL", "pgvector", "AlphaFold", "React", "OpenAI"],
+    tools: ["Python", "FastAPI", "RDKit", "AI","PostgreSQL", "pgvector", "AlphaFold", "React", "OpenAI"],
     stat: "94%",
     statLabel: "Model accuracy",
   },
