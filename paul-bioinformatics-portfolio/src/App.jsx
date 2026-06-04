@@ -9,12 +9,13 @@ const projects = [
     category: "Bioinformatics",
     tag: "BINF",
     summary:
-      "Alignment-free genome comparison using k-mers, hashing, AI Agent, cosine distance, distance matrices, and phylogenetic tree construction.",
+      "Alignment-free genome comparison using k-mers, Pykali, AI Agent, cosine distance, distance matrices, and phylogenetic tree construction.",
     details:
       "This pipeline processes FASTA files, extracts k-mer features, converts sequences into numerical vectors, calculates cosine distance, and supports phylogenetic tree construction. Benchmarked against 1,000+ viral genomes with 94% clustering accuracy.",
     tools: ["AI","Python", "R","K-mer Analysis", "HPC/Linux"],
     stat: "10000+",
     statLabel: "Genomes analyzed",
+    iso: { top:"#9FD3BB", left:"#40916C", right:"#2D6A4F", stroke:"#1B4332", label:"KALI", sub:"k-mer genomics" },
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ const projects = [
     tools: ["Python", "FastAPI", "RDKit", "AI","PostgreSQL", "pgvector", "AlphaFold", "React", "OpenAI"],
     stat: "94%",
     statLabel: "Model accuracy",
+    iso: { top:"#F5C4B3", left:"#D85A30", right:"#993C1D", stroke:"#4A1B0C", label:"AI Drug", sub:"discovery" },
   },
   {
     id: 3,
@@ -41,19 +43,21 @@ const projects = [
     tools: ["React", "Node.js", "Express", "MongoDB", "REST API", "Tailwind"],
     stat: "500+",
     statLabel: "PGx entries",
+    iso: { top:"#FAC775", left:"#EF9F27", right:"#BA7517", stroke:"#412402", label:"PGx", sub:"pharmacogenomics" },
   },
   {
     id: 4,
-    title: " Phylogenetic Distance Analysis",
+    title: "Phylogenetics",
     category: "Bioinformatics",
     tag: "BINF",
     summary:
       "K-mer-based pairwise genomic distance matrix analysis for 10000+ genomes with KMeans clustering, PCA, and annotated heatmaps.",
     details:
-      "Processed pairwise distance matrices from csv files. Implemented KMeans clustering, PCA dimensionality reduction, seaborn heatmaps with  metadata annotations. Cluster assignments mapped to known phylogenetic groupings.",
+      "Processed pairwise distance matrices from csv files. Implemented KMeans clustering, PCA dimensionality reduction, seaborn heatmaps with metadata annotations. Cluster assignments mapped to known phylogenetic groupings.",
     tools: ["Python", "AI Agent", "React", "Scikit-learn", "PCA", "Classifier", "Tensor"],
     stat: "10000+",
     statLabel: "Genomes clustered",
+    iso: { top:"#CECBF6", left:"#7F77DD", right:"#534AB7", stroke:"#26215C", label:"Phylo", sub:"genomic analysis" },
   }
 ];
 
@@ -433,14 +437,25 @@ export default function App() {
         <div className="project-grid" role="list">
           {filtered.map((project, i) => (
             <article
-              className={`project-card reveal ${projectsInView ? "visible" : ""}`}
+              className={`project-card ${projectsInView ? "visible" : ""}`}
               key={project.id}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              style={{ transitionDelay: `${i * 0.12}s` }}
               role="listitem"
             >
-              <div className="project-top">
-                <span className="project-tag">{project.tag}</span>
-                <span className="project-category">{project.category}</span>
+              <div className="project-iso-top">
+                <div className="project-top">
+                  <span className="project-tag">{project.tag}</span>
+                  <span className="project-category">{project.category}</span>
+                </div>
+                {project.iso && (
+                  <svg className="project-iso-svg" width="80" height="66" viewBox="0 0 80 66" aria-hidden="true">
+                    <polygon points="8,32 40,14 72,32 40,50" fill={project.iso.top} stroke={project.iso.stroke} strokeWidth="0.7"/>
+                    <polygon points="8,32 8,48 40,66 40,50" fill={project.iso.left} stroke={project.iso.stroke} strokeWidth="0.7"/>
+                    <polygon points="40,50 40,66 72,48 72,32" fill={project.iso.right} stroke={project.iso.stroke} strokeWidth="0.7"/>
+                    <text fontFamily="Inter,sans-serif" fontSize="10" fontWeight="600" fill={project.iso.stroke} textAnchor="middle" x="40" y="28">{project.iso.label}</text>
+                    <text fontFamily="Inter,sans-serif" fontSize="8" fill={project.iso.right} textAnchor="middle" x="40" y="40">{project.iso.sub}</text>
+                  </svg>
+                )}
               </div>
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
