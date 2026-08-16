@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import "./App.css";
 
@@ -334,6 +335,9 @@ export default function App() {
               {id.charAt(0).toUpperCase() + id.slice(1)}
             </a>
           ))}
+          <Link to="/blog" onClick={() => setMenuOpen(false)}>
+            Blog
+          </Link>
         </div>
       </nav>
 
