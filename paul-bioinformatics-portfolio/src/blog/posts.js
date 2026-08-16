@@ -6,6 +6,62 @@
 
 export const posts = [
   {
+    slug: "why-compare-genomes-without-alignment",
+    title: "Why Compare Genomes Without Alignment? My Journey Into K-mer Analysis",
+    description:
+      "A researcher's introduction to alignment-free genome comparison, why k-mers matter, and how questions about k-mer spacing helped shape my work on KALI.",
+    date: "2026-08-16",
+    author: "Paul Alemoh",
+    topic: "Computational Genomics",
+    readingTime: "7 min read",
+    coverAlt: "Conceptual illustration of two genomes being compared through k-mer patterns without sequence alignment",
+    content: [
+      { type: "p", text: "Genomes contain an enormous amount of information. Even a bacterial genome can contain millions of DNA bases, and one of the basic questions in bioinformatics sounds surprisingly simple: How similar are two genomes?" },
+      { type: "p", text: "The answer, however, is not always simple." },
+      { type: "p", text: "When I started working more deeply with genomic sequence comparison, I was familiar with the traditional idea: if you want to compare sequences, you align them. Tools such as BLAST have made sequence alignment one of the foundations of bioinformatics, and alignment remains extremely valuable." },
+      { type: "p", text: "But I became interested in a different question: What if we could measure meaningful similarities between genomes without aligning them first?" },
+      { type: "p", text: "That question led me deeper into the world of k-mers and alignment-free sequence analysis." },
+      { type: "h2", text: "Starting with something very small" },
+      { type: "p", text: "A genome may contain millions of nucleotides, but we can break that enormous sequence into much smaller pieces." },
+      { type: "p", text: "Consider this short DNA sequence:" },
+      { type: "code", text: "ATGCGAT" },
+      { type: "p", text: "If we choose k = 3, we can move across the sequence one base at a time and obtain:" },
+      { type: "code", text: "ATG\nTGC\nGCG\nCGA\nGAT" },
+      { type: "p", text: "Each of these short sequences is called a k-mer. The k simply represents the length of the sequence. In this example, k equals 3, so we have 3-mers." },
+      { type: "p", text: "At first, this may seem almost too simple to be useful. But imagine doing this across an entire bacterial genome. Millions of DNA bases can suddenly be represented as patterns that a computer can count, compare, and analyze." },
+      { type: "h2", text: "From DNA sequences to patterns" },
+      { type: "p", text: "This is where the idea became particularly interesting to me. If two bacterial genomes are closely related, we would expect them to share many sequence patterns. If they are more distantly related, those patterns should begin to differ." },
+      { type: "p", text: "Instead of asking a computer to align every region before making a comparison, we can represent genomes through k-mer characteristics and calculate how similar or different those representations are. This forms part of what we call alignment-free genome comparison." },
+      { type: "p", text: "Alignment-free does not mean that sequence alignment is unnecessary or outdated. Alignment answers important biological questions and remains essential in many areas of genomics. Alignment-free methods simply give us another way to examine sequence data, especially when the number of genomes becomes large." },
+      { type: "h2", text: "But counting k-mers is not the whole story" },
+      { type: "p", text: "As I continued exploring this area, another question became important: What information are we losing when we only count how often a k-mer appears?" },
+      { type: "p", text: "Imagine that a particular k-mer occurs 100 times in two different genomes. The frequency is identical. But what if those 100 occurrences are distributed very differently? In one genome, they might appear close together. In another, they might be spread throughout the sequence." },
+      { type: "p", text: "The count tells us how many times the pattern occurs. It does not necessarily tell us how those occurrences are distributed. That distinction became an important part of my research." },
+      { type: "h2", text: "Looking at the space between k-mers" },
+      { type: "p", text: "Instead of examining only k-mer frequency, we can also examine the spacing between occurrences. Suppose a particular k-mer appears at several positions in a genome. We can measure the distance from one occurrence to the next and use those intervals to describe another characteristic of the sequence." },
+      { type: "p", text: "Now we have another way to ask whether two genomes are similar. Not simply: Do they contain similar k-mers? But also: Do those k-mers occur in similar spatial patterns?" },
+      { type: "p", text: "This idea led me to investigate k-mer spacing as an alignment-free representation for genomic comparison." },
+      { type: "h2", text: "From a question to KALI" },
+      { type: "p", text: "That exploration eventually became part of the work behind KALI, the genome-analysis framework I have been developing." },
+      { type: "p", text: "My interest is not limited to counting k-mers. I want to understand how different representations of genomic sequence, including k-mer occurrence, spacing, and related patterns, can help us compare genomes efficiently while preserving useful information." },
+      { type: "p", text: "Questions naturally follow. How does the choice of k affect the result? How much information does k-mer spacing capture? How closely do different alignment-free representations agree? Can these approaches recover meaningful relationships among closely related bacterial genomes? And when should we still prefer traditional alignment-based approaches?" },
+      { type: "p", text: "These are the kinds of questions I want to explore on this blog." },
+      { type: "h2", text: "Why I am starting this blog" },
+      { type: "p", text: "I created this blog to share more than finished results. Research papers usually show the final method, experiment, and conclusion. They rarely show the entire journey behind the work: the questions that started an idea, approaches that did not work as expected, unexpected results, design decisions, or the process of turning an algorithm into working software." },
+      { type: "p", text: "I want this space to cover that side too. I will write about bioinformatics, computational genomics, k-mers, alignment-free sequence analysis, antimicrobial resistance, AI in drug discovery, and the tools I am building along the way." },
+      { type: "p", text: "Some articles will explain fundamental concepts. Others will go deeper into methods, experiments, and software development. The goal is simple: make the science understandable without removing the science." },
+      { type: "p", text: "And k-mers seem like a good place to begin." },
+      { type: "h2", text: "Coming next" },
+      { type: "p", text: "In the next article, I will answer a deceptively simple question: What exactly is a k-mer, and why has this small piece of DNA become so useful in modern bioinformatics?" },
+    ],
+    seo: {
+      metaTitle: "Why Compare Genomes Without Alignment? My Journey Into K-mer Analysis | Paul Alemoh",
+      metaDescription:
+        "Explore why alignment-free genome comparison matters, how k-mers and k-mer spacing can represent genomic patterns, and how these questions connect to KALI.",
+      canonical: "https://poalemoh.dev/blog/why-compare-genomes-without-alignment",
+    },
+  },
+  {
     slug: "what-are-kmers",
     title: "What Are K-mers? A Simple Introduction to Bioinformatics",
     description:
@@ -53,7 +109,6 @@ export const posts = [
 // they're shown on /blog as "coming soon" so search engines only index
 // real, complete pages.
 export const plannedTopics = [
-  "What Is Alignment-Free Genome Comparison?",
   "Alignment-Based vs. Alignment-Free Genome Analysis",
   "K-mer Frequency vs. K-mer Spacing",
   "How K-mer Spacing Can Be Used to Compare Bacterial Genomes",
