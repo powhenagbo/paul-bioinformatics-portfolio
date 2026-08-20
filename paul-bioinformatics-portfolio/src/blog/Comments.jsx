@@ -56,15 +56,11 @@ export default function Comments({ slug }) {
     GISCUS_REPO_ID !== "R_kgDOSZEP8w" &&
     GISCUS_CATEGORY_ID !== "DIC_kwDOSZEP884DDxv4";
 
+  if (!configured) return null;
+
   return (
     <section className="blog-comments" aria-label="Comments and reactions">
       <h2 className="blog-comments-heading">Comments</h2>
-      {!configured && (
-        <p className="blog-comments-placeholder">
-          Comments are almost ready — connect this section to GitHub
-          Discussions to turn it on.
-        </p>
-      )}
       <div ref={ref} />
     </section>
   );

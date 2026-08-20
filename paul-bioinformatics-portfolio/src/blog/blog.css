@@ -61,6 +61,75 @@
   margin-top: 40px;
 }
 
+.blog-archive {
+  margin-top: 40px;
+}
+.blog-archive-year-group + .blog-archive-year-group {
+  margin-top: 32px;
+}
+.blog-archive-year {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  margin: 0 0 8px;
+}
+.blog-archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.blog-archive-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.blog-archive-row:hover {
+  border-bottom-color: var(--border-hover);
+}
+.blog-archive-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1.4;
+}
+.blog-archive-title:hover {
+  color: var(--terra);
+}
+.blog-archive-meta {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.blog-load-more {
+  display: block;
+  margin: 28px auto 0;
+  padding: 10px 22px;
+  background: transparent;
+  border: 1px solid var(--border-hover);
+  border-radius: 999px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.blog-load-more:hover {
+  border-color: var(--terra);
+  color: var(--terra);
+}
+
 .blog-post-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -107,16 +176,25 @@
   padding-top: 32px;
   border-top: 1px solid var(--border);
 }
-.blog-upcoming h2 {
+.blog-upcoming summary {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text);
-  margin-bottom: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.blog-upcoming summary::-webkit-details-marker { display: none; }
+.blog-upcoming summary::before {
+  content: "▸ ";
+  color: var(--text-faint);
+}
+.blog-upcoming details[open] summary::before {
+  content: "▾ ";
 }
 .blog-upcoming ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 16px 0 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -192,6 +270,7 @@
 @media (max-width: 600px) {
   .blog-post-card-link { padding: 22px; }
   .blog-article-body p { font-size: 16px; }
+  .blog-archive-row { flex-direction: column; gap: 4px; }
 }
 
 .blog-comments {
