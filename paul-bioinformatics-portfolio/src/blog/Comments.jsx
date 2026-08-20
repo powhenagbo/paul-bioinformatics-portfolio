@@ -1,13 +1,10 @@
 import { useEffect, useRef } from "react";
 
 // --- Giscus configuration -------------------------------------------------
-// Fill these in from https://giscus.app after enabling GitHub Discussions
-// on the repo (Settings -> General -> Features -> Discussions) and
-// installing the giscus app (https://github.com/apps/giscus) on the repo.
-// giscus.app will generate the exact repoId/categoryId values for you.
+// Values below are Paul's actual repo/category IDs from giscus.app.
 const GISCUS_REPO = "powhenagbo/paul-bioinformatics-portfolio";
 const GISCUS_REPO_ID = "R_kgDOSZEP8w";
-const GISCUS_CATEGORY = "General"; // or "Announcements" / a category you create
+const GISCUS_CATEGORY = "General"; // or "Announcements" / a category you created
 const GISCUS_CATEGORY_ID = "DIC_kwDOSZEP884DDxv4";
 // ---------------------------------------------------------------------------
 
@@ -19,14 +16,6 @@ export default function Comments({ slug }) {
 
     // Clear out any previous embed (e.g. when navigating between posts)
     ref.current.innerHTML = "";
-
-    if (
-      GISCUS_REPO_ID === "R_kgDOSZEP8w" ||
-      GISCUS_CATEGORY_ID === "DIC_kwDOSZEP884DDxv4"
-    ) {
-      // Not configured yet — render nothing rather than a broken embed.
-      return;
-    }
 
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
@@ -51,12 +40,6 @@ export default function Comments({ slug }) {
 
     ref.current.appendChild(script);
   }, [slug]);
-
-  const configured =
-    GISCUS_REPO_ID !== "R_kgDOSZEP8w" &&
-    GISCUS_CATEGORY_ID !== "DIC_kwDOSZEP884DDxv4";
-
-  if (!configured) return null;
 
   return (
     <section className="blog-comments" aria-label="Comments and reactions">
