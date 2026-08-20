@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { getPostBySlug } from "./posts";
+import Comments from "./Comments";
 import "../App.css";
 import "./blog.css";
 
@@ -109,6 +110,8 @@ export default function BlogPost() {
               <Link to="/#projects">KALI project</Link>.
             </p>
           </footer>
+
+          <Comments slug={post.slug} />
         </article>
       </div>
     </div>

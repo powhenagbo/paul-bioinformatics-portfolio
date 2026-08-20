@@ -193,3 +193,18 @@
   .blog-post-card-link { padding: 22px; }
   .blog-article-body p { font-size: 16px; }
 }
+
+.blog-comments {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.blog-comments-heading {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.blog-comments-placeholder {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-style: italic;
+}
