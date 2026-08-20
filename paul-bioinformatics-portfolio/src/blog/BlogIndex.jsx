@@ -5,27 +5,24 @@ import { posts, plannedTopics } from "./posts";
 import "../App.css";
 import "./blog.css";
 
-const PAGE_SIZE = 10;
-
-function groupByYear(list) {
-  const groups = new Map();
-  for (const post of list) {
-    const year = new Date(post.date).getFullYear();
-    if (!groups.has(year)) groups.set(year, []);
-    groups.get(year).push(post);
-  }
-  return [...groups.entries()].sort((a, b) => b[0] - a[0]);
-}
+const PAGE_SIZE = 8;
 
 export default function BlogIndex() {
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [page, setPage] = useState(1);
 
   const sorted = [...posts].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
-  const visible = sorted.slice(0, visibleCount);
-  const hasMore = visibleCount < sorted.length;
-  const grouped = groupByYear(visible);
+
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const visible = sorted.slice(start, start + PAGE_SIZE);
+
+  const goTo = (p) => {
+    setPage(p);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="blog-page">
@@ -59,43 +56,53 @@ export default function BlogIndex() {
         </header>
 
         <section className="blog-archive" aria-label="Published articles">
-          {grouped.map(([year, yearPosts]) => (
-            <div key={year} className="blog-archive-year-group">
-              <h2 className="blog-archive-year">{year}</h2>
-              <ul className="blog-archive-list">
-                {yearPosts.map((post) => (
-                  <li key={post.slug} className="blog-archive-row">
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="blog-archive-title"
-                    >
-                      {post.title}
-                    </Link>
-                    <span className="blog-archive-meta">
-                      <time dateTime={post.date}>
-                        {new Date(post.date).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                        })}
-                      </time>
-                      <span aria-hidden="true">·</span>
-                      <span>{post.readingTime}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ul className="blog-archive-list">
+            {visible.map((post) => (
+              <li key={post.slug} className="blog-archive-row">
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="blog-archive-title"
+                >
+                  {post.title}
+                </Link>
+                <span className="blog-archive-meta">
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span aria-hidden="true">·</span>
+                  <span>{post.readingTime}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        {hasMore && (
-          <button
-            type="button"
-            className="blog-load-more"
-            onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
-          >
-            Show more articles
-          </button>
+        {totalPages > 1 && (
+          <nav className="blog-pagination" aria-label="Blog pagination">
+            <button
+              type="button"
+              onClick={() => goTo(currentPage - 1)}
+              disabled={currentPage === 1}
+              aria-label="Previous page"
+            >
+              ← Prev
+            </button>
+            <span className="blog-pagination-status">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              type="button"
+              onClick={() => goTo(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              aria-label="Next page"
+            >
+              Next →
+            </button>
+          </nav>
         )}
 
         {plannedTopics.length > 0 && (

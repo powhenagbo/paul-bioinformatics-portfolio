@@ -64,17 +64,6 @@
 .blog-archive {
   margin-top: 40px;
 }
-.blog-archive-year-group + .blog-archive-year-group {
-  margin-top: 32px;
-}
-.blog-archive-year {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--text-faint);
-  margin: 0 0 8px;
-}
 .blog-archive-list {
   list-style: none;
   margin: 0;
@@ -112,10 +101,15 @@
   white-space: nowrap;
 }
 
-.blog-load-more {
-  display: block;
-  margin: 28px auto 0;
-  padding: 10px 22px;
+.blog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+.blog-pagination button {
+  padding: 8px 16px;
   background: transparent;
   border: 1px solid var(--border-hover);
   border-radius: 999px;
@@ -125,9 +119,18 @@
   cursor: pointer;
   transition: var(--transition);
 }
-.blog-load-more:hover {
+.blog-pagination button:hover:not(:disabled) {
   border-color: var(--terra);
   color: var(--terra);
+}
+.blog-pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.blog-pagination-status {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-faint);
 }
 
 .blog-post-card {
